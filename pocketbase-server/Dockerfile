@@ -9,6 +9,6 @@ COPY pb_public /app/pb_public
 
 RUN chmod +x /app/pocketbase
 
-EXPOSE 8090
+EXPOSE 8080
 
-CMD ["./pocketbase", "serve", "--http=0.0.0.0:${PORT}"]
+CMD ["sh", "-c", "./pocketbase serve --http=0.0.0.0:${PORT}"]
