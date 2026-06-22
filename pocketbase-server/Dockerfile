@@ -14,3 +14,4 @@ RUN chmod +x /app/reset_admin.sh
 EXPOSE 8080
 
 CMD ["sh", "-c", "/app/reset_admin.sh && ./pocketbase serve --http=0.0.0.0:${PORT}"]
+
