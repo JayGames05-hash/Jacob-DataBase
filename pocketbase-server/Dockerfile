@@ -6,9 +6,11 @@ COPY pocketbase /app/pocketbase
 COPY pb_data /app/pb_data
 COPY pb_migrations /app/pb_migrations
 COPY pb_public /app/pb_public
+COPY reset_admin.sh /app/reset_admin.sh
 
 RUN chmod +x /app/pocketbase
+RUN chmod +x /app/reset_admin.sh
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "./pocketbase serve --http=0.0.0.0:${PORT}"]
+CMD ["sh", "-c", "/app/reset_admin.sh && ./pocketbase serve --http=0.0.0.0:${PORT}"]
